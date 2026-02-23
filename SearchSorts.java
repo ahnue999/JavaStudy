@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Q201434
+public class SearchSorts
 {
 	public static void main(String[] args)
 	{
@@ -67,7 +67,7 @@ public class Q201434
 			System.out.println();
 		}
 
-		public int binarySearch(int value)
+		public int linearSearch(int value)
 		{
 			for (int i = 0; i < s; i++)
 			{
@@ -120,6 +120,10 @@ public class Q201434
 
 		public void insertionSort()
 		{
+			/* starting from index one, we compare each member of the list and move them on step to the right
+			if they are bigger than our refrence, until we hit a smaller number (the refrence moves to the left).
+			*/
+
 			int tmp;
 			for (int i = 1; i < s; i++)
 			{
@@ -133,6 +137,11 @@ public class Q201434
 				}
 				A[j + 1] = tmp;
 			}
+		}
+
+		public void binarySearch(int value)
+		{
+
 		}
 	}
 }
