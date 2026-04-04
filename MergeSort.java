@@ -2,10 +2,11 @@ public class MergeSort
 {
 	public static void main(String[] args)
 	{
-		int[] a = {1, 3 ,5, 9};
-		int[] b = {2, 8 ,10, 11, 20};
+		int[] arr = {9, 3, 5, 1, 8, 2, 10, 11, 20};
 
-		display(merge(a, b));
+		int[] sorted = mergeSort(arr);
+
+		display(sorted);
 	}
 
 	public static void display(int[] a)
@@ -47,5 +48,29 @@ public class MergeSort
 		}
 
 		return(r);
+	}
+
+	public static int[] mergeSort(int[] arr)
+	{
+		if (arr.length == 1) return arr;
+
+		int mid = arr.length / 2;
+
+		int[] left = new int[mid];
+		int[] right = new int[arr.length - mid];
+
+		for (int i = 0; i < mid; i++)
+		{
+			left[i] = arr[i];
+		}
+		for (int i = mid; i < arr.length; i++)
+		{
+			right[i - mid] = arr[i];
+		}
+
+		left = mergeSort(left);
+		right = mergeSort(right);
+
+		return (merge(left, right));
 	}
 }
