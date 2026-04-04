@@ -139,9 +139,28 @@ public class SearchSorts
 			}
 		}
 
-		public void binarySearch(int value)
+		public int binarySearch(int value)
 		{
-
+            int l, h, m;
+		    l = 0;
+		    h = s - 1;
+		    
+		    while (l <= h)
+		    {
+		        m = (l + h) / 2;
+		        
+		        if (A[m] == value)
+		            return (m);
+		        if (A[m] < value)
+		        {
+		            l = m + 1;
+		        }
+		        else
+		        {
+		            h = m - 1;
+		        }
+		    }
+		    return (-1);
 		}
 	}
 }
