@@ -6,12 +6,18 @@ public class Tictac
 	{
 		Game tic = new Game();
 		tic.menu();
+
 	}
 	public static class Game
 	{
 		private char[][] board;
 		boolean p1;
 		Scanner input = new Scanner(System.in);
+
+		// ANSI Colors
+		public static final String RESET = "\u001B[0m";
+		public static final String RED = "\u001B[31m";
+		public static final String GREEN = "\u001B[32m";
 
 		public Game()
 		{
@@ -114,12 +120,20 @@ public class Tictac
 		}
 		public void printboard()
 		{
+
 			clrscr();
 			for (int i = 0; i < 3; i++)
 			{
 				for (int j = 0; j < 3; j++)
 				{
-					System.out.print(" " + board[i][j]);
+					if (board[i][j] == 'O')
+					{
+						System.out.print(GREEN + " " + board[i][j] + RESET);
+					}
+					else
+					{
+						System.out.print(RED + " " + board[i][j] + RESET);
+					}
 					if (j != 2)
 						System.out.print(" |");
 				}
