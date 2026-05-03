@@ -27,6 +27,12 @@ public class Tictac
 			while (true)
 			{
 				System.out.printf("[1] Start Game\n[2] Exit\n");
+				if (!input.hasNextInt())
+				{
+					System.out.println("Please Enter a Number from Range (1-2)");
+					input.next();
+					continue;
+				}
 				c = input.nextInt();
 
 				switch (c)
@@ -59,7 +65,6 @@ public class Tictac
 					return;
 				}
 				
-				//System.out.println(checkdraw());
 				if (checkdraw())
 				{
 					System.out.printf("DRAW\n\n");
@@ -146,7 +151,14 @@ public class Tictac
 
 			while(true)
 			{
+				if (!input.hasNextInt())
+				{
+					System.out.println("INVALID INPUT: Please Enter a Number from Range (1-9)");
+					input.next();
+					continue;
+				}
 				pos = conv(input.nextInt());
+
 				try
 				{
 					if (board[pos[0]][pos[1]] != ' ')
@@ -157,11 +169,11 @@ public class Tictac
 				}
 				catch (ArrayIndexOutOfBoundsException e)
 				{
-					System.out.println("Please Enter a Valid Move");
+					System.out.println("OUT OF BOUNDS: Please Enter a Number from Range (1-9)");
 				}
 				catch (IllegalArgumentException e)
 				{
-					System.out.println("Please Enter a Valid Move");
+					System.out.println("POSITION LOCKED: Please Pick Another Position");
 				}
 			}
 		}
