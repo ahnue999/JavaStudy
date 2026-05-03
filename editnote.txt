@@ -1,7 +1,9 @@
 switch player after and not before turn
 replace ? with " ", and . with +
-change conv's logic
-(yet) InputMismatchException
-(yet) play again instead of throw to main menu
+simplify conv's logic
+InputMismatch (using hasNextInt())
 uasge of symbol() instead of shorthand if
 Game instead of game
+
+(yet) play again instead of throw to main menu
+(yet) (Big Change) Divide into objects
