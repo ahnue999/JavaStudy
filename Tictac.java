@@ -5,9 +5,8 @@ public class Tictac
 	public static void main(String[] args)
 	{
 		game tic = new game();
-		tic.turn();
-		tic.turn();
 		tic.printboard();
+		tic.start();
 	}
 	public static class game
 	{
@@ -20,6 +19,60 @@ public class Tictac
 			board = new char[3][3];
 			emptyboard();
 			p1 = false;
+		}
+
+		public void start()
+		{
+			emptyboard();
+			p1 = false;
+			int p = p1? 1 : 2;
+
+			while(true)
+			{
+				turn();
+				printboard();
+				if (checkwin())
+				{
+					System.out.printf("Player%d's WIN\n", p);
+					return;
+				}
+				/*
+				if (checkdraw());
+				{
+					System.out.println("DRAW");
+					return;
+				}
+				*/
+			}
+		}
+
+		public boolean checkwin()
+		{
+			for (int i = 0; i < 3; i++)
+			{
+				if (board[i][0] != '?' && board[i][0] == board[i][1] && board[i][1] == board[i][2])
+					return true;
+				if (board[0][i] != '?' && board[0][i] == board[1][i] && board[1][i] == board[2][i])
+					return true;
+			}
+			if (board[0][0] != '?' && board[0][0] == board[1][1] && board[1][1] == board[2][2])
+				return true;
+			if (board[0][2] != '?' && board[0][2] == board[1][1] && board[1][1] == board[2][0])
+				return true;
+			return false;
+		}
+
+		public boolean checkdraw()
+		{
+			for (int i = 0; i < 3; i++)
+			{
+				for (int j = 0; j < 3; j++)
+					if (board[i][j] == '?')
+					{
+						return false;
+					}
+			}
+			return true;
 		}
 
 		public void emptyboard()
