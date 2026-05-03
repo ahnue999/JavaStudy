@@ -1,0 +1,7 @@
+switch player after and not before turn
+replace ? with " ", and . with +
+change conv's logic
+(yet) InputMismatchException
+(yet) play again instead of throw to main menu
+uasge of symbol() instead of shorthand if
+Game instead of game

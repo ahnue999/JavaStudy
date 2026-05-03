@@ -4,23 +4,23 @@ public class Tictac
 {
 	public static void main(String[] args)
 	{
-		game tic = new game();
-		tic.interf();
+		Game tic = new Game();
+		tic.menu();
 	}
-	public static class game
+	public static class Game
 	{
 		private char[][] board;
 		boolean p1;
 		Scanner input = new Scanner(System.in);
 
-		public game()
+		public Game()
 		{
 			board = new char[3][3];
 			emptyboard();
-			p1 = false;
+			p1 = true;
 		}
 
-		public void interf()
+		public void menu()
 		{
 			int c;
 
@@ -45,13 +45,13 @@ public class Tictac
 		public void start()
 		{
 			emptyboard();
-			p1 = false;
+			p1 = true;
 
 			printboard();
 			while(true)
 			{
+				char p = symbol();
 				turn();
-				char p = p1? 'O' : 'X';
 				printboard();
 				if (checkwin())
 				{
@@ -72,14 +72,14 @@ public class Tictac
 		{
 			for (int i = 0; i < 3; i++)
 			{
-				if (board[i][0] != '?' && board[i][0] == board[i][1] && board[i][1] == board[i][2])
+				if (board[i][0] != ' ' && board[i][0] == board[i][1] && board[i][1] == board[i][2])
 					return true;
-				if (board[0][i] != '?' && board[0][i] == board[1][i] && board[1][i] == board[2][i])
+				if (board[0][i] != ' ' && board[0][i] == board[1][i] && board[1][i] == board[2][i])
 					return true;
 			}
-			if (board[0][0] != '?' && board[0][0] == board[1][1] && board[1][1] == board[2][2])
+			if (board[0][0] != ' ' && board[0][0] == board[1][1] && board[1][1] == board[2][2])
 				return true;
-			if (board[0][2] != '?' && board[0][2] == board[1][1] && board[1][1] == board[2][0])
+			if (board[0][2] != ' ' && board[0][2] == board[1][1] && board[1][1] == board[2][0])
 				return true;
 			return false;
 		}
@@ -89,7 +89,7 @@ public class Tictac
 			for (int i = 0; i < 3; i++)
 			{
 				for (int j = 0; j < 3; j++)
-					if (board[i][j] == '?')
+					if (board[i][j] == ' ')
 					{
 						return false;
 					}
@@ -103,7 +103,7 @@ public class Tictac
 			{
 				for (int j = 0; j < 3; j++)
 				{
-					board[i][j] = '?';
+					board[i][j] = ' ';
 				}
 			}
 		}
@@ -121,7 +121,7 @@ public class Tictac
 				if (i != 2)
 				{
 					System.out.println();
-					System.out.println("---.---.---");
+					System.out.println("---+---+---");
 				}
 			}
 			System.out.println();
@@ -135,19 +135,12 @@ public class Tictac
 		public int[] conv(int n)
 		{
 			n--;
-			int i = 0;
-			while (n > 2)
-			{
-				n -= 3;
-				i++;
-			}
-			return (new int[] {i, n});
+			return (new int[] {n / 3, n % 3});
 		}
 
 		public void turn()
 		{
-			p1 = !p1;
-			char p = p1? 'O': 'X';
+			char p = symbol();
 			int[] pos = new int[2];
 			System.out.printf("%c's move (1-9)\n", p);
 
@@ -156,9 +149,10 @@ public class Tictac
 				pos = conv(input.nextInt());
 				try
 				{
-					if (board[pos[0]][pos[1]] != '?')
+					if (board[pos[0]][pos[1]] != ' ')
 						throw new IllegalArgumentException("");
 					board[pos[0]][pos[1]] = symbol();
+					p1 = !p1;
 					return;
 				}
 				catch (ArrayIndexOutOfBoundsException e)
