@@ -30,19 +30,20 @@ public class Tictac
 			while(true)
 			{
 				turn();
+				clrscr();
 				printboard();
 				if (checkwin())
 				{
 					System.out.printf("Player%d's WIN\n", p);
 					return;
 				}
-				/*
-				if (checkdraw());
+				
+				//System.out.println(checkdraw());
+				if (checkdraw())
 				{
 					System.out.println("DRAW");
 					return;
 				}
-				*/
 			}
 		}
 
@@ -147,6 +148,12 @@ public class Tictac
 					System.out.println("Please Enter a Valid Move");
 				}
 			}
+		}
+
+		public void clrscr()
+		{
+			System.out.print("\033[H\033[2J");
+			System.out.flush();
 		}
 	}
 }
