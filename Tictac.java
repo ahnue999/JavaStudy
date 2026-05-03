@@ -5,8 +5,7 @@ public class Tictac
 	public static void main(String[] args)
 	{
 		game tic = new game();
-		tic.printboard();
-		tic.start();
+		tic.interf();
 	}
 	public static class game
 	{
@@ -21,27 +20,49 @@ public class Tictac
 			p1 = false;
 		}
 
+		public void interf()
+		{
+			int c;
+
+			while (true)
+			{
+				System.out.printf("[1] Start Game\n[2] Exit\n");
+				c = input.nextInt();
+
+				switch (c)
+				{
+					case 1:
+						start();
+						break;
+					case 2:
+						System.out.println("See You Next Time!");
+						return;
+					default:
+						System.out.println("Enter a Valid Value [1-2]");
+				}
+			}
+		}
 		public void start()
 		{
 			emptyboard();
 			p1 = false;
-			int p = p1? 1 : 2;
 
+			printboard();
 			while(true)
 			{
 				turn();
-				clrscr();
+				char p = p1? 'O' : 'X';
 				printboard();
 				if (checkwin())
 				{
-					System.out.printf("Player%d's WIN\n", p);
+					System.out.printf("%c WINS\n\n", p);
 					return;
 				}
 				
 				//System.out.println(checkdraw());
 				if (checkdraw())
 				{
-					System.out.println("DRAW");
+					System.out.printf("DRAW\n\n");
 					return;
 				}
 			}
@@ -88,6 +109,7 @@ public class Tictac
 		}
 		public void printboard()
 		{
+			clrscr();
 			for (int i = 0; i < 3; i++)
 			{
 				for (int j = 0; j < 3; j++)
@@ -125,9 +147,9 @@ public class Tictac
 		public void turn()
 		{
 			p1 = !p1;
-			int p = p1? 1: 2;
+			char p = p1? 'O': 'X';
 			int[] pos = new int[2];
-			System.out.printf("Player%d's move (1-9)\n", p);
+			System.out.printf("%c's move (1-9)\n", p);
 
 			while(true)
 			{
