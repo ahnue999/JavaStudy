@@ -5,6 +5,7 @@ InputMismatch (using hasNextInt())
 uasge of symbol() instead of shorthand if
 Game instead of game
 Added colors
+Added Record
 
 (yet) play again instead of throw to main menu
 (yet) (Big Change) Divide into objects
