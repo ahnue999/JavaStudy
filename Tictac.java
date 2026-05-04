@@ -12,6 +12,7 @@ public class Tictac
 	{
 		private char[][] board;
 		boolean p1;
+		int[] record;
 		Scanner input = new Scanner(System.in);
 
 		// ANSI Colors
@@ -24,6 +25,7 @@ public class Tictac
 			board = new char[3][3];
 			emptyboard();
 			p1 = true;
+			record = new int[2];
 		}
 
 		public void menu()
@@ -68,12 +70,15 @@ public class Tictac
 				if (checkwin())
 				{
 					System.out.printf("%c WINS\n\n", p);
+					record[p1? 1: 0]++;
+					System.out.printf("Record\n____________\nO: %d | X: %d\n____________\n\n", record[0], record[1]);
 					return;
 				}
 				
 				if (checkdraw())
 				{
 					System.out.printf("DRAW\n\n");
+					System.out.printf("Record:\nO: %d - X: %d", record[0], record[1]);
 					return;
 				}
 			}
