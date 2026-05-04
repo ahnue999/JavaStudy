@@ -74,11 +74,10 @@ public class Tictac
 					System.out.printf("Record\n____________\nO: %d | X: %d\n____________\n\n", record[0], record[1]);
 					return;
 				}
-				
 				if (checkdraw())
 				{
 					System.out.printf("DRAW\n\n");
-					System.out.printf("Record:\nO: %d - X: %d", record[0], record[1]);
+					System.out.printf("Record\n____________\nO: %d | X: %d\n____________\n\n", record[0], record[1]);
 					return;
 				}
 			}
@@ -125,7 +124,6 @@ public class Tictac
 		}
 		public void printboard()
 		{
-
 			clrscr();
 			for (int i = 0; i < 3; i++)
 			{
@@ -186,13 +184,13 @@ public class Tictac
 					p1 = !p1;
 					return;
 				}
-				catch (ArrayIndexOutOfBoundsException e)
-				{
-					System.out.println("OUT OF BOUNDS: Please Enter a Number from Range (1-9)");
-				}
 				catch (IllegalArgumentException e)
 				{
 					System.out.println("POSITION LOCKED: Please Pick Another Position");
+				}
+				catch (ArrayIndexOutOfBoundsException e)
+				{
+					System.out.println("OUT OF BOUNDS: Please Enter a Number from Range (1-9)");
 				}
 			}
 		}
