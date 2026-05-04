@@ -56,17 +56,35 @@ public class Tictac
 				}
 			}
 		}
+
+		public void guide()
+		{
+			char[][] guidearray = new char[3][3];
+
+			for (int i = 0; i < 3; i++)
+			{
+				for (int j = 0; j < 3; j++)
+				{
+					guidearray[i][j] = (char)(i * 3 + j + 1 + 48);
+				}
+			}
+
+			printboard(guidearray);
+			System.out.printf("\nThe goal is to be the first to align three of ");
+			System.out.printf("your\nmarks horizontally, vertically, or diagonally.\n\n");
+		}
 		public void start()
 		{
-			emptyboard();
+			guide();
 			p1 = true;
+			emptyboard();
 
-			printboard();
+			//printboard(board);
 			while(true)
 			{
 				char p = symbol();
 				turn();
-				printboard();
+				printboard(board);
 				if (checkwin())
 				{
 					System.out.printf("%c WINS\n\n", p);
@@ -122,20 +140,20 @@ public class Tictac
 				}
 			}
 		}
-		public void printboard()
+		public void printboard(char[][] arr)
 		{
 			clrscr();
 			for (int i = 0; i < 3; i++)
 			{
 				for (int j = 0; j < 3; j++)
 				{
-					if (board[i][j] == 'O')
+					if (arr[i][j] == 'O')
 					{
-						System.out.print(GREEN + " " + board[i][j] + RESET);
+						System.out.print(GREEN + " " + arr[i][j] + RESET);
 					}
 					else
 					{
-						System.out.print(RED + " " + board[i][j] + RESET);
+						System.out.print(RED + " " + arr[i][j] + RESET);
 					}
 					if (j != 2)
 						System.out.print(" |");
