@@ -11,9 +11,9 @@ public class Tictac
 	public static class Game
 	{
 		private char[][] board;
-		boolean p1;
-		int[] record;
-		Scanner input = new Scanner(System.in);
+		private boolean p1;
+		private int[] record;
+		private Scanner input = new Scanner(System.in);
 
 		// ANSI Colors
 		public static final String RESET = "\u001B[0m";

@@ -125,16 +125,25 @@ public class Simple
 	}
 	public static int BinarySearchRec(int[] arr, int key, int leftId, int rightId)
 	{
+		int r = -1;
 		if (leftId > rightId)
-			return -1;
+			return r;
 
 		int midId = (leftId + rightId) / 2;
 
 		if (arr[midId] == key)
 			return midId;
 		if (key > arr[midId])
-			return BinarySearchRec(arr, key, midId + 1, rightId);
+		{
+			//return BinarySearchRec(arr, key, midId + 1, rightId);
+			r = BinarySearchRec(arr, key, midId + 1, rightId);
+			return r;
+		}
 		else
-			return BinarySearchRec(arr, key, leftId, midId - 1);
+		{
+			//return BinarySearchRec(arr, key, leftId, midId - 1);
+			r = BinarySearchRec(arr, key, leftId, midId - 1);
+			return r;
+		}
 	}
 }
