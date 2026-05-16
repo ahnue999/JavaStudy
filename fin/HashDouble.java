@@ -2,7 +2,7 @@ public class HashDouble
 {
 	public static void main(String[] args)
 	{
-		HashTable myTable = new HashTable(10);
+		HashTable myTable = new HashTable(13);
 
 		myTable.insert(3);
 		myTable.insert(5);
