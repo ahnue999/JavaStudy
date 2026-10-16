@@ -74,6 +74,14 @@ public class LibraryApp {
 		} else {
 			System.out.println("Book not found.");
 		}
+
+		result = findBookById(books, 999);
+
+		if (result != null) {
+			result.displayInfo();
+		} else {
+			System.out.println("Book not found.");
+		}
 	}
 
 	public static Book findBookById(ArrayList<Book> books, int id) {

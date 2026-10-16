@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 
+/* With the inclusion of Book under library item, a new main was made
+ for consistency using its own updated class scheme.*/
 public class LibraryApp2 {
 
 	public static void main(String[] args) {
