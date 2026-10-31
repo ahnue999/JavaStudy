@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class PharmacyApp {
+public class PharmacyApp2 {
 	public static void main(String[] args) {
 		ArrayList<MedicineBase> stock = new ArrayList<>();
 

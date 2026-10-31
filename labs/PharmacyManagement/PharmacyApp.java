@@ -1,11 +1,32 @@
 import java.util.ArrayList;
 
 public class PharmacyApp {
+
+	public static int countMeds ( ArrayList<Medicine> medicines)
+	{
+		int count = 0;
+		ArrayList<Medicine> tmp = new ArrayList<>();
+
+		for (Medicine med : medicines)
+		{
+			if (!checkMedicine(tmp, med.getName()))
+			{
+				tmp.add(med);
+				count++;
+			}
+		}
+
+		return count;
+	}
+
 	public static void main(String[] args) {
 
 		ArrayList<Medicine> medicines = new ArrayList<>();
 
 		medicines.add(new Medicine(101, "Paracetamol", 25.50, 20));
+		medicines.add(new Medicine(101, "Paracetamol", 25.50, 20));
+		medicines.add(new Medicine(101, "Paracetamol", 25.50, 20));
+		medicines.add(new Medicine(102, "Amoxicillin", 80.00, 10));
 		medicines.add(new Medicine(102, "Amoxicillin", 80.00, 10));
 		medicines.add(new Medicine(103, "Vitamin C", 45.00, 15));
 		medicines.add(new Medicine(357, "Ibuprofen", 35.75, 12));
@@ -17,9 +38,10 @@ public class PharmacyApp {
 			medicine.displayInfo();
 
 
-		// Task 2 Print the Number of Medicine Records
 
+		// Task 2 Print the Number of Medicine Records
 		System.out.println("Total medicines: " + medicines.size());
+		System.out.println("Total medicines with no duplicates: " + countMeds(medicines));
 
 		System.out.println("\nSelling 2 Paracetamol...");
 		medicines.get(0).sell(2);
@@ -108,5 +130,15 @@ public class PharmacyApp {
 			}
 		}
 		return null;
+	}
+
+	public static boolean checkMedicine ( ArrayList<Medicine> medicines, String name)
+	{
+		for (Medicine medicine : medicines) {
+			if (medicine.getName().equals(name)) {
+				return true;
+			}
+		}
+		return false;
 	}
 }

@@ -30,9 +30,6 @@ public class Medicine {
     }
 
     public void displayInfo() {
-        System.out.println(
-            "ID: " + id + ", Name: " + name +
-            ", Price: " + price + ", Quantity: " + quantity
-        );
+        System.out.println( "ID: " + id + ", Name: " + name + ", Price: " + price + ", Quantity: " + quantity);
     }
 }

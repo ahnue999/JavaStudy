@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class PharmacyApp {
+public class PharmacyApp2 {
 	public static void main(String[] args) {
 		ArrayList<MedicineBase> stock = new ArrayList<>();
 
@@ -10,4 +10,12 @@ public class PharmacyApp {
 
 		for (MedicineBase medicine : stock)
 			medicine.displayInfo();
+
+		System.out.println("\n===== FINAL PHARMACY REPORT =====");
+
+		for (MedicineBase medicine : stock)
+			medicine.displayInfo();
+
+		System.out.println( "Total medicine records: " + stock.size());
 	}
+}
