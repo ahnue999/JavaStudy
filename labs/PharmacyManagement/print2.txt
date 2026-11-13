@@ -1,0 +1,34 @@
+===== Pharmacy Stock =====
+ID: 101, Name: Paracetamol, Price: 25.5, Quantity: 20
+ID: 101, Name: Paracetamol, Price: 25.5, Quantity: 20
+ID: 101, Name: Paracetamol, Price: 25.5, Quantity: 20
+ID: 102, Name: Amoxicillin, Price: 80.0, Quantity: 10
+ID: 102, Name: Amoxicillin, Price: 80.0, Quantity: 10
+ID: 103, Name: Vitamin C, Price: 45.0, Quantity: 15
+ID: 357, Name: Ibuprofen, Price: 35.75, Quantity: 12
+Total medicines: 7
+Total medicines with no duplicates: 4
+
+Selling 2 Paracetamol...
+Sale completed.
+
+After Sale:
+ID: 101, Name: Paracetamol, Price: 25.5, Quantity: 18
+
+Adding 5 Paracetamol...
+
+After Adding Stock:
+ID: 101, Name: Paracetamol, Price: 25.5, Quantity: 23
+Medicine found.
+Available quantity: 12
+Sale completed.
+Sale cannot be completed.
+ID: 357, Name: Ibuprofen, Price: 35.75, Quantity: 9
+ID: 357, Name: Ibuprofen, Price: 35.75, Quantity: 9
+Prescription Medicine - ID: 201, Name: Antibiotic X, Price: 90.0, Quantity: 8, Prescription Required: true
+OTC Medicine - ID: 202, Name: Pain Relief, Price: 30.0, Quantity: 20, Category: Adults
+
+===== FINAL PHARMACY REPORT =====
+Prescription Medicine - ID: 201, Name: Antibiotic X, Price: 90.0, Quantity: 8, Prescription Required: true
+OTC Medicine - ID: 202, Name: Pain Relief, Price: 30.0, Quantity: 20, Category: Adults
+Total medicine records: 2
